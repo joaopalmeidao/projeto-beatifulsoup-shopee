@@ -58,7 +58,7 @@ for i, j in enumerate(soup_categories):
         try:
             roboto = browser.find_element(
                 By.CLASS_NAME, 'shopee-category-list__header')
-            t.sleep(1)
+            t.sleep(2)
             break
         except:
             t.sleep(1)
