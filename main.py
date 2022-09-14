@@ -73,7 +73,7 @@ for i, j in enumerate(soup_categories):
         next_page = browser.find_element(
             By.CSS_SELECTOR, 'button[class*="shopee-icon-button shopee-icon-button--right"]')
         next_page.send_keys(Keys.ENTER)
-        print('Mudei de Página!')
+        print(i, 'Mudei de Página!')
         while True:
             try:
                 wait = browser.find_element(
