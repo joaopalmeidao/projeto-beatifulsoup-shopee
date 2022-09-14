@@ -56,16 +56,36 @@ for i, j in enumerate(soup_categories):
     browser.get(url)
     while True:
         try:
-            roboto = browser.find_element(
+            wait = browser.find_element(
                 By.CLASS_NAME, 'shopee-category-list__header')
             t.sleep(2)
             break
         except:
-            t.sleep(1)
+            t.sleep(0.1)
     soup = BeautifulSoup(browser.page_source, "html.parser")
     # print(soup.encode('utf-8'))
     items = 'div[class="col-xs-2-4 shopee-search-item-result__item"]'
     soup_items = soup.select(items)
     print(len(soup_items))
+    while i <= 50:
+        next_page = browser.find_element(
+            By.CSS_SELECTOR, 'button[class*="shopee-icon-button shopee-icon-button--right"]')
+        next_page.send_keys(Keys.ENTER)
+        print('Mudei de Página!')
+        while True:
+            try:
+                wait = browser.find_element(
+                    By.CSS_SELECTOR, 'button[class*="shopee-icon-button shopee-icon-button--right"]')
+                t.sleep(2)
+                break
+            except:
+                t.sleep(0.1)
+        # t.sleep(2)
+        soup = BeautifulSoup(browser.page_source, "html.parser")
+        soup_items = soup.select(items)
+        print(len(soup_items))
+        i += 1
+
+    # t.sleep(10)
 
 # browser.quit()
