@@ -88,4 +88,4 @@ for i, j in enumerate(soup_categories):
 
     # t.sleep(10)
 
-# browser.quit()
+browser.quit()
