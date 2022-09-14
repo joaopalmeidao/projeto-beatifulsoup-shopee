@@ -24,9 +24,11 @@ browser.get(url)
 t.sleep(5)
 soup = BeautifulSoup(browser.page_source, "html.parser")
 
-categories = 'div[class="pFceVI"] a'
+# categories = 'div[class="pFceVI"] a'
+categories = 'div[class="home-category-list__group"] a'
 soup_categories = soup.select(categories)
 
+print(soup)
 print(len(soup_categories))
 print(unidecode(str(soup_categories)))
 
@@ -34,6 +36,10 @@ for i, j in enumerate(soup_categories):
     category = j.get_text()
     print(i, unidecode(category))
     link = j.find_all('a', href=True)
-    print(j['href'])
+    link = j['href']
+    print(link)
+    url = f"https://shopee.com.br{link}"
+    browser.get(url)
+    t.sleep(5)
 
-browser.quit()
+# browser.quit()
