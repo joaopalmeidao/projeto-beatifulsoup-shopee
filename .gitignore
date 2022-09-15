@@ -1,2 +1,4 @@
 venv
 test
+binaries
+main_test.py
