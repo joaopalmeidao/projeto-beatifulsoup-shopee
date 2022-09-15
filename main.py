@@ -179,7 +179,7 @@ for i, soup_cat in enumerate(soup_categories):
         i += 1  # Add 1 to enumerate valor
 
     category_excel = link.find('.')
-    category_excel = category[:category_excel]
+    category_excel = link[:category_excel]
     df = pd.append(relatorio)
     df = df.to_excel(f"{unidecode(category_excel)}.xlsx")
     '''Make the Report of the category'''
